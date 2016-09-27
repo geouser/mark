@@ -5,7 +5,9 @@ html,
 body {
 	height: 100%;
 }
-
+body {
+    padding: 30px;
+}
 
 // lAYOUT
 // ---------------------------
@@ -13,4 +15,18 @@ body {
 	width: 1200px;
 	margin: 0 auto;
 	text-align: center;
+}
+.mainSection {
+    height: 100%;
+    @include flex();
+}
+.column {
+    width: 50%;
+    height: 100%;
+    &--images {
+        background-color: $accent;
+    }
+    &--info {
+        @include flex($alignI: flex-start, $direction: colum);
+    }
 }
