@@ -1,16 +1,19 @@
 
 // TYPOGRAPHIC
 // ---------------------------
-html,
 body {
 	height: 100%;
+	width: 100%;
+	font-family: $pn;
+	font-size: 16px;
+	color: #212121;
+	overflow: auto;
 }
 
 
 // lAYOUT
 // ---------------------------
 .wrapper {
-	width: 1200px;
 	margin: 0 auto;
 	text-align: center;
 }
