@@ -1,6 +1,36 @@
 
 // TYPOGRAPHIC
 // ---------------------------
+h1 {
+    font: 48px/56px $pnb;
+    color: $heading;
+    margin-bottom: 50px;
+    span {
+        color: $accent;
+        display: block;
+    }
+}
+h1,h2,h3 {
+    color: $heading;
+}
+p {
+    line-height: 22px;
+}
+p, span {
+    color: $text;
+}
+.italic {
+    font: 26px/28px $pd;
+    font-style: italic;
+    display: block;
+    a {
+        text-decoration: underline;
+        color: $accent;
+    }
+    &--margin {
+        margin-top: 60px;
+    }
+}
 html {
     height: 100%;
 }
@@ -33,6 +63,7 @@ body {
         background-color: $accent;
     }
     &--info {
-        @include flex($alignI: flex-start, $direction: colum);
+        @include flex($alignI: flex-start, $direction: column);
+        position: relative;
     }
 }

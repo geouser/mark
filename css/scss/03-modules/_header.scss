@@ -1,44 +1,50 @@
          
-.mainHeader {
-    @include position(absolute, 0, auto, auto, 0);
+.header {
     width: 100%;
-    z-index: 100;
-    background: #fff;
+    height: 45px;
     margin: 0;
-    @include transition(all, .4s);
-    
+    @include flex();
         /*.................media.............*/
         @include m800 {
-            @include position(fixed, 0, auto, auto, -100%);
-            width: 260px !important;
-            height: 100%;
-            text-align: center;
-            background-color: #fff;
-            margin-top: 0;
-            padding: 20px 0;
-            z-index: 100;
-            overflow: scroll;
-             
-            &.active { left: 0;}
-            .wrapper {
-                display: block;
-            }
+
         }
         /*.............end media..............*/
 }
 
+.logo {
+    position: relative;
+    z-index: 100;
+}
 
 /* ------------------------------------ */
 /*  NAV STYLES  */
-.mainNav {
+.navigation {
+    @include position(absolute, 0, auto, auto, -100%);
+    width: 100%;
+    height: 100%;
+    padding: 80px 0;
+    @include flex($alignI: flex-start, $direction: column, $justify: center);
+    background-color: #FFF;
+    -webkit-transition: .4s;
+       -moz-transition: .4s;
+        -ms-transition: .4s;
+         -o-transition: .4s;
+            transition: .4s;
+    &.active {
+        left: 0;
+    }
     ul {
         list-style-type: none;
         a {
-            display: inline-block;
-            margin: 0 20px;
+            display: block;
             text-decoration: none;
+            font: 38px/56px $pnb;
+            color: $heading;
             @include transition(all, .2s);             
             &:hover {}
+            &.active {
+                color: $accent;
+            }
         }
 
             /*.................media.............*/
@@ -62,41 +68,148 @@
 /*  MENU BUTTON  */
 
 .menu-button     {    
-    display: none;
-    width: 50px;
-    height: 50px;
-    @include position(fixed, 15px, 15px, auto, auto);
-    margin: auto; 
+    width: 34px;
+    height: 24px;
+    margin: 0 30px 0 0; 
     cursor: pointer;
     z-index: 100;
-    background-color: salmon;
     border: none;
+    background: transparent;
+    position: relative;
     -webkit-border-radius: 4px;
             border-radius: 4px;
+
     .menu-line {
         display: block;
-        @include position(absolute, auto, 0, auto, 0);
-        width: 60%;
-        height: 5px;
-        background-color: #fff;
-        -webkit-border-radius: 1px;
-        border-radius: 1px;
+        @include position(absolute, auto, 0, auto, auto);
+        width: 100%;
+        height: 2px;
+        background-color: $heading;
         @include transition(all, .4s);
+        -webkit-transition-delay: .2s;
+           -moz-transition-delay: .2s;
+            -ms-transition-delay: .2s;
+             -o-transition-delay: .2s;
+                transition-delay: .2s;
+    }
+    .top_line              {   top: 0px;}
+    .middle_line           {   top: 11px;}
+    .bottom_line           {   bottom: 0px; width: 20px; right: 0; transition: 0s !important;}
+
+    &:hover {
+        .menu-line {
+            -webkit-animation: move linear .7s infinite;
+               -moz-animation: move linear .7s infinite;
+                 -o-animation: move linear .7s infinite;
+                    animation: move linear .7s infinite;
+        }
+        .top_line              {   
+           -webkit-animation-delay: 0s;
+           -moz-animation-delay: 0s;
+             -o-animation-delay: 0s;
+                animation-delay: 0s;}
+        .middle_line           {   
+           -webkit-animation-delay: .2s;
+           -moz-animation-delay: .2s;
+             -o-animation-delay: .2s;
+                animation-delay: .2s;}
+        .bottom_line           {   
+            -webkit-animation-delay: .1s;
+           -moz-animation-delay: .1s;
+             -o-animation-delay: .1s;
+                animation-delay: .1s;}
     }
 
-    .top_line              {   top: 12px;  margin: auto;}
-    .middle_line           {   top: 22px;  margin: auto;}
-    .bottom_line           {   bottom: 12px; margin: auto;}
+    &.active .top_line     {   
+        -webkit-animation: rotLine linearTop .4s forwards;
+               -moz-animation: rotLineTop linear .4s forwards;
+                 -o-animation: rotLineTop linear .4s forwards;
+                    animation: rotLineTop linear .4s forwards;}
+    &.active .bottom_line  { 
+         -webkit-animation: rotLineBottom linear .4s forwards;
+               -moz-animation: rotLineBottom linear .4s forwards;
+                 -o-animation: rotLineBottom linear .4s forwards;
+                    animation: rotLineBottom linear .4s forwards; width: 100%;}
+    &.active .middle_line  { opacity: 0; width: 0;}
 
-    &.active               {   -webkit-border-radius: 6px; border-radius: 6px;}
-    &.active .top_line     {   @include transform(rotate(45deg)); top: 45%;}
-    &.active .bottom_line  {   @include transform(rotate(-45deg)); bottom: 45%;}
-    &.active .middle_line  {   width: 0; left: 50%;}
+    &.default .top_line     {   
+        -webkit-animation: rotLine linearTopB .4s forwards;
+               -moz-animation: rotLineTopB linear .4s forwards;
+                 -o-animation: rotLineTopB linear .4s forwards;
+                    animation: rotLineTopB linear .4s forwards;}
+    &.default .bottom_line  { 
+         -webkit-animation: rotLineBottomB linear .4s forwards;
+               -moz-animation: rotLineBottomB linear .4s forwards;
+                 -o-animation: rotLineBottomB linear .4s forwards;
+                    animation: rotLineBottomB linear .4s forwards;
+    }
 
-        /*.................media.............*/
-        @include m800 {
-            display: block;
-        }
-        /*..............end media.............*/
+}
 
+@-webkit-keyframes move {
+    0% {right: 0;}
+    5% {right: 0;}
+    45% {right: 5px;}
+    55% {right: 5px;}
+    95% {right: 0;}
+    100% {right: 0;}
+} 
+
+@keyframes move {
+    0% {right: 0;}
+    5% {right: 0;}
+    45% {right: 5px;}
+    55% {right: 5px;}
+    95% {right: 0;}
+    100% {right: 0;}
+}
+
+
+
+@-webkit-keyframes rotLineTop {
+    0% {    }
+    30%     {top: 45%; transform: rotate(-4deg)}
+    100% {    top: 45%; transform: rotate(-45deg)}
+} 
+
+@keyframes rotLineTop {
+    0% {    }
+    30%     {top: 45%; transform: rotate(-4deg)}
+    100% {    top: 45%; transform: rotate(-45deg)}
+}
+
+@-webkit-keyframes rotLineBottom {
+    0% {    }
+    30%  {  bottom: 45%; transform: rotate(-13deg)} 
+    100% {  bottom: 45%;  transform: rotate(-135deg)}
+} 
+
+@keyframes rotLineBottom {
+    0% {    }
+    30%  {  bottom: 45%; transform: rotate(-13deg)} 
+    100% {  bottom: 45%;  transform: rotate(-135deg)}
+}
+
+@-webkit-keyframes rotLineTopB {
+    0% {    top: 45%;  transform: rotate(-45deg)}
+    90%  {  top: 0%; transform: rotate(-4deg)} 
+    100% {  top: 0%;  transform: rotate(-0deg)}
+} 
+
+@keyframes rotLineTopB {
+    0% {    top: 45%;  transform: rotate(-45deg)}
+    90%  {  top: 0%; transform: rotate(-4deg)} 
+    100% {  top: 0%;  transform: rotate(-0deg)}
+}
+
+@-webkit-keyframes rotLineBottomB {
+    0% {    bottom: 45%;  transform: rotate(-135deg)}
+    90%  {  bottom: 0%; transform: rotate(-13deg)} 
+    100% {  bottom: 0%;  transform: rotate(-0deg)}
+} 
+
+@keyframes rotLineBottomB {
+    0% {    bottom: 45%;  transform: rotate(-135deg)}
+    90%  {  bottom: 0%; transform: rotate(-13deg)} 
+    100% {  bottom: 0%;  transform: rotate(-0deg)}
 }

@@ -1,0 +1,24 @@
+footer {
+    @include flex();
+    width: 100%;
+    padding-right: 30px;
+    position: relative;
+    z-index: 100;
+}
+.social {
+    a {
+        font: 14px/16px $pnb;
+        color: $heading;
+        display: inline-block;
+        margin: 5px;
+        text-transform: uppercase;
+    }
+    &:last-of-type {
+        a {
+            margin-right: 0;
+        }
+    }
+}
+.copyright {
+    font: 14px/16px $pnb;
+}

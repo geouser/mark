@@ -28,12 +28,16 @@ jQuery(document).ready(function($) {
     ---------------------------*/
     $('.menu-button').on('click', function(event) {
         event.preventDefault();
-        $(this).toggleClass('active');
-        $(this).siblings('header').toggleClass('active');
-        if ($('header').hasClass('active')) {
+        $('.navigation').toggleClass('active');
+        if ($('.navigation').hasClass('active')) {
                 $('body').css('overflow', 'hidden');
+                $(this).removeClass('default').addClass('active');
             } else {
                 $('body').css('overflow', 'visible');
+                $(this).removeClass('active').addClass('default');
+                setTimeout(function() {
+                   $('.menu-button').removeClass('default');
+               }, 800);
             }
     });
 
