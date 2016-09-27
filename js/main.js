@@ -64,6 +64,29 @@ jQuery(document).ready(function($) {
     });
 
 
+    /*----------------------------
+                              Slick slider
+    -------------------------*/
+    $('.column--slider').slick({
+        fade: true,
+        autoplay: true,
+        autoplaySpeed: 4000,
+        dots: true,
+        arrows: false
+    });
+
+    /*----------------------------
+                              Mix
+    -------------------------*/
+    $('.mix-container').mixItUp({
+        animation: {
+            duration: 400,
+            effects: 'fade translateZ(-360px) stagger(34ms)',
+            easing: 'ease'
+        }
+    });
+
+
 
     /*----------------------------
                               SEND FORM

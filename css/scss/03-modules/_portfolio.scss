@@ -1,0 +1,18 @@
+.portfolio-item {
+	width: -webkit-calc(25% - 20px);
+	width: calc(25% - 20px);
+	margin: 0 10px 20px 10px;
+	display: none;
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+.portfolio-wrapper {
+	@include flex($alignI: flex-start, $justify: flex-start);
+	width: -webkit-calc(100% + 20px);
+	width: calc(100% + 20px);
+	margin-left: -10px;
+	margin-right: -10px;
+}
