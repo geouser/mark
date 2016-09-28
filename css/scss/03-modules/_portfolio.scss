@@ -1,8 +1,14 @@
 .portfolio {
 	position: relative;
+	min-height: 100%;
 
 	.header {
 		margin-bottom: 80px;
+	}
+
+	footer {
+		position: absolute;
+		bottom: 0;
 	}
 }
 
@@ -27,7 +33,7 @@
 
 .portfolio-controls {
 	position: absolute;
-	top: -20px;
+	top: 11px;
 	left: 50%;
 	-webkit-transform: translateX(-50%);
 	-ms-transform: translateX(-50%);
@@ -40,9 +46,36 @@
 		border: 0;
 		font-family: $pnb;
 		color: $text;
+		text-transform: uppercase;
+		-webkit-transition: color 0.3s ease;
+		-o-transition: color 0.3s ease;
+		transition: color 0.3s ease;
+		cursor: pointer;
+		display: inline-block;
+		vertical-align: middle;
+		font-size: 14px;
+		position: relative;
+		padding: 0;
 
-		&.active {
+		&.active,
+		&:hover {
 			color: $accent;
+		}
+		&:not(:last-child) {
+			margin-right: 40px;
+		}
+
+		&:not(:last-child):after {
+			display: inline-block;
+			vertical-align: middle;
+			width: 4px;
+			height: 2px;
+			content: '';
+			background-color: $text;
+			position: absolute;
+			top: 50%;
+			margin-top: -1px;
+			right: -22px;
 		}
 	}
 }
