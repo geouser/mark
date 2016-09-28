@@ -1,3 +1,11 @@
+.portfolio {
+	position: relative;
+
+	.header {
+		margin-bottom: 80px;
+	}
+}
+
 .portfolio-item {
 	width: -webkit-calc(25% - 20px);
 	width: calc(25% - 20px);
@@ -15,4 +23,26 @@
 	width: calc(100% + 20px);
 	margin-left: -10px;
 	margin-right: -10px;
+}
+
+.portfolio-controls {
+	position: absolute;
+	top: -20px;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	-o-transform: translateX(-50%);
+	transform: translateX(-50%);
+	z-index: 4;
+
+	.filter {
+		background-color: transparent;
+		border: 0;
+		font-family: $pnb;
+		color: $text;
+
+		&.active {
+			color: $accent;
+		}
+	}
 }
