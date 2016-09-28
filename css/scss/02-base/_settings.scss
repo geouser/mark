@@ -52,6 +52,9 @@ body {
 	margin: 0 auto;
 	text-align: center;
 }
+section {
+    position: relative;
+}
 .mainSection {
     height: 100%;
     @include flex();

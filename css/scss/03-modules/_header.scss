@@ -3,7 +3,6 @@
     width: 100%;
     height: 45px;
     margin: 0;
-    padding-right: 30px;
     @include flex();
     &__top {
         @include flex();
@@ -11,6 +10,7 @@
         width: 100%;
         background-color: #FFF;
         z-index: 3;
+        padding-right: 30px;
     }
         /*.................media.............*/
         @include m800 {
@@ -90,6 +90,8 @@
     }
 }
 
+
+
 .menuImg {
     display: block;
     width: 100%;
@@ -110,6 +112,16 @@
     }
 }
 
+
+.header--full {
+  .navigation,
+  .menuImg {
+    width: 50%;
+  }
+  .menuImg {
+    left: 50%;
+  }
+}
 
 /* ------------------------------------ */
 /*  MENU BUTTON  */
