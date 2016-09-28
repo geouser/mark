@@ -32,9 +32,15 @@ jQuery(document).ready(function($) {
         $('.menuImg').toggleClass('active');
         if ($('.navigation').hasClass('active')) {
                 $('body').css('overflow', 'hidden');
+                 $('.portfolio').css({
+                    height: '100%'
+                });
                 $(this).removeClass('default').addClass('active');
             } else {
-                $('body').css('overflow', 'visible');
+                $('body').css('overflow', 'auto');
+                $('.portfolio').css({
+                    height: 'auto'
+                });
                 $(this).removeClass('active').addClass('default');
                 setTimeout(function() {
                    $('.menu-button').removeClass('default');
