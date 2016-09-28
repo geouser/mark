@@ -79,15 +79,30 @@ jQuery(document).ready(function($) {
     /*----------------------------
                               Mix
     -------------------------*/
-    $('.mix-container').mixItUp({
-        animation: {
-            duration: 400,
-            effects: 'fade translateZ(-360px) stagger(34ms)',
-            easing: 'ease'
-        }
-    });
+    if ( $('.mix-container').length > 0 ) {
+        $('.mix-container').mixItUp({
+            animation: {
+                duration: 400,
+                effects: 'fade translateZ(-360px) stagger(34ms)',
+                easing: 'ease',
+            },
+            callbacks: {
+                onMixEnd: function(state){
+                    $('.scroll').perfectScrollbar('update'); 
+                    console.log('end');
+                }
+            }
+        });    
+    }
+    
 
-
+    /*----------------------------
+                              Scroll
+    -------------------------*/
+    if ( $('.scroll').length > 0 ) {
+        $('.scroll').perfectScrollbar(); 
+    }
+    
 
     /*----------------------------
                               SEND FORM
