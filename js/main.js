@@ -29,6 +29,7 @@ jQuery(document).ready(function($) {
     $('.menu-button').on('click', function(event) {
         event.preventDefault();
         $('.navigation').toggleClass('active');
+        $('.menuImg').toggleClass('active');
         if ($('.navigation').hasClass('active')) {
                 $('body').css('overflow', 'hidden');
                 $(this).removeClass('default').addClass('active');

@@ -43,7 +43,7 @@ body {
 	overflow: auto;
 }
 body {
-    padding: 30px;
+    border: 30px solid #fff;
 }
 
 // lAYOUT
@@ -55,6 +55,7 @@ body {
 .mainSection {
     height: 100%;
     @include flex();
+    overflow: hidden;
 }
 .column {
     width: 50%;
@@ -65,5 +66,6 @@ body {
     &--info {
         @include flex($alignI: flex-start, $direction: column);
         position: relative;
+        z-index: 2;
     }
 }
