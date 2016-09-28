@@ -30,7 +30,7 @@
     @include position(absolute, -100%, auto, auto, 0);
     width: 100%;
     height: 100%;
-    padding: 80px 0;
+    padding: 80px 0 80px 10px;
     z-index: -1;
     @include flex($alignI: flex-start, $direction: column, $justify: center);
     background-color: #FFF;
@@ -47,10 +47,28 @@
             text-decoration: none;
             font: 38px/56px $pnb;
             color: $heading;
-            @include transition(all, .2s);        
-            &:hover {}
+            position: relative;
+            @include transition(all, .4s);       
             &.active {
                 color: $accent;
+            }
+            &:not(.active):after {
+                display: block;
+                width: 0%;
+                height: 100%;
+                content: "";
+                position: absolute;
+                left: -8px;
+                top: 0;
+                background-color: $accent;
+                z-index: -1;
+                @include transition(all, .3s);  
+            }
+            &:not(.active):hover {
+                color: #FFF;
+                &:after {
+                    width: 100%;
+                }
             }
         }
 
@@ -139,10 +157,10 @@
     }
     &:hover {
         span {
-            -webkit-animation: move linear .7s infinite;
-               -moz-animation: move linear .7s infinite;
-                 -o-animation: move linear .7s infinite;
-                    animation: move linear .7s infinite;
+            -webkit-animation: move linear 1s infinite;
+               -moz-animation: move linear 1s infinite;
+                 -o-animation: move linear 1s infinite;
+                    animation: move linear 1s infinite;
         }
         :nth-child(1)              {   
            -webkit-animation-delay: 0s;
@@ -150,15 +168,15 @@
              -o-animation-delay: 0s;
                 animation-delay: 0s;}
         :nth-child(2)           {   
-           -webkit-animation-delay: .1s;
-           -moz-animation-delay: .1s;
-             -o-animation-delay: .1s;
-                animation-delay: .1s;}
-        :nth-child(3)          {   
-            -webkit-animation-delay: .2s;
+           -webkit-animation-delay: .2s;
            -moz-animation-delay: .2s;
              -o-animation-delay: .2s;
                 animation-delay: .2s;}
+        :nth-child(3)          {   
+            -webkit-animation-delay: .4s;
+           -moz-animation-delay: .4s;
+             -o-animation-delay: .4s;
+                animation-delay: .4s;}
       }
     }
   #cross {
@@ -230,9 +248,9 @@
 
 @keyframes move {
     0% {transform: translate( 0, 0);}
-    5% {transform: translate( 0, 0);}
-    45% {transform: translate( -5px, 0);}
-    55% {transform: translate( -5px, 0);}
-    95% {transform: translate( 0, 0);}
+    10% {transform: translate( 0, 0);}
+    40% {transform: translate( -5px, 0);}
+    60% {transform: translate( -5px, 0);}
+    90% {transform: translate( 0, 0);}
     100% {transform: translate( 0, 0);}
 }
