@@ -48,7 +48,7 @@
             font: 38px/56px $pnb;
             color: $heading;
             position: relative;
-            @include transition(all, .4s);       
+            @include transition(all, .5s);       
             &.active {
                 color: $accent;
             }
