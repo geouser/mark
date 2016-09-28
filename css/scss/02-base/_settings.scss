@@ -30,6 +30,14 @@ p, span {
     &--margin {
         margin-top: 60px;
     }
+    &--marginSmall {
+        margin-top: 40px;
+    }
+}
+.grey,
+a.grey {
+    text-decoration: none;
+    color: $text;
 }
 html {
     height: 100%;
@@ -71,5 +79,11 @@ section {
         @include flex($alignI: flex-start, $direction: column);
         position: relative;
         z-index: 2;
+        main {
+            padding: 0 40% 0 60px;
+        }
+        p {
+            margin-bottom: 25px;
+        }
     }
 }
