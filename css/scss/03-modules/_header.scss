@@ -11,6 +11,9 @@
         border-bottom: 1px solid #EBEBEB;
         background-color: #FFF;
         z-index: 3;
+        @include m1000 {
+          padding-right: 0;
+        }
     }
         /*.................media.............*/
         @include m800 {
@@ -30,13 +33,21 @@
     @include position(absolute, -100%, auto, auto, 0);
     width: 100%;
     height: 100%;
+
     padding: 80px 0 80px 60px;
-    z-index: -1;
+    z-index: 1;
     @include flex($alignI: flex-start, $direction: column, $justify: center);
     background-color: #FFF;
     z-index: 2;
     @include transition(all, .6s);
     transition-timing-function: ease-out;
+    @include m1000 {
+      display: block;
+      padding: 60px 0 40px;
+      height: 50vh;
+      overflow: scroll;
+      z-index: 1;
+    }
     &.active {
         top: 0;
     }
@@ -45,7 +56,7 @@
         width: 100%;
 
         li {
-          width: auto;
+          display: block;
         }
         a {
             display: inline-block;
@@ -53,10 +64,12 @@
             font: 38px/56px $pnb;
             color: $heading;
             position: relative;
-            @include transition(all, .1s);       
+            @include transition(all, .1s);
+
             &.active {
                 color: $accent;
             }
+
             &:not(.active):after {
                 display: block;
                 width: 0%;
@@ -76,27 +89,44 @@
                     width: calc(100% + 16px);
                 }
             }
-        }
-
-            /*.................media.............*/
-            @include m800 { 
-                display: block;
-                position: relative;
-                li a  {   
-                    margin: 0 0 25px 0;
-                    &.active {color: #ECCC1D;}
-                    &:hover  {background: transparent;}
-                } 
+            @include m1000 {
+              
             }
-            /*.............end media.............*/
+            @media (max-height: 650px) {
+              font: 32px/48px $pnb;
+            }
+            @media (max-height: 600px) {
+              font: 30px/42px $pnb;
+            }
+            @media (max-height: 500px) {
+              font: 26px/36px $pnb;
+            }
+        }
+      li {
+        &.current_page_item a {
+                color: $accent;
+                &:after {
+                  display: none;
+                }
+                &:hover {
+                   color: $accent;
+                }
+          }
+      }
+
     }
     .italic {
         margin-top: 200px;
         font-style: normal;
-
         @media (max-height: 700px) {
           margin-top: 100px;
         }
+        @include m1000 {
+          margin-top: 40px;
+        }
+         @media (max-height: 600px) {
+            margin-top: 20px;
+          }
     }
 }
 
@@ -120,6 +150,21 @@
     &.active {
         bottom: 0;
     }
+    @include m1000 {
+      left: -100%;
+      bottom: -100vh;
+      height: 50vh;
+      -webkit-transition: bottom .5s;
+         -moz-transition: bottom .5s;
+          -ms-transition: bottom .5s;
+           -o-transition: bottom .5s;
+              transition: bottom .5s;
+      &.active {
+        left: 0;
+          bottom: 0;
+          position: fixed;
+      }
+    }
 }
 
 
@@ -130,7 +175,27 @@
   }
   .menuImg {
     left: 50%;
+     @include m1000 {
+      left: 0;
+      bottom: -150vh;
+      height: 50vh;
+      width: 100%;
+      &.active {
+          bottom: 0;
+          position: fixed;
+      }
+    }
   }
+  .navigation {
+      @include m1000 {
+        display: block;
+        padding: 60px 0 40px;
+        height: 50vh;
+        overflow: scroll;
+        z-index: 1;
+        width: 100%;
+      }
+    }
 }
 
 /* ------------------------------------ */
