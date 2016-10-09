@@ -1,14 +1,19 @@
 footer { 
     width: 100%;
-    position: relative;
+    position: absolute;
     z-index: 100;
     padding-right: 30px;
+    bottom: 0;
 
     .footer__wrapper {
         @include flex();
         padding-top: 30px;
         border-top: 1px solid #EBEBEB;
         width: 100%;
+
+        @media (max-width: 1000px) {
+            padding-top: 20px;
+        }
     }
 }
 .social {
@@ -18,6 +23,13 @@ footer {
         display: inline-block;
         margin: 5px;
         text-transform: uppercase;
+        -webkit-transition: color 0.3s ease;
+        -o-transition: color 0.3s ease;
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: #ff6666;
+        }
     }
     &:last-of-type {
         a {

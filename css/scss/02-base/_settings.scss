@@ -7,7 +7,7 @@ h1 {
     margin-bottom: 50px;
     span {
         color: $accent;
-        display: block;
+        display: inline;
     }
     @include m1000 {
         font: 42px/50px $pnb;
@@ -36,6 +36,10 @@ p, span {
     a {
         text-decoration: underline;
         color: $accent;
+
+        &:hover {
+            text-decoration: none;
+        }
     }
     &--margin {
         margin-top: 60px;
@@ -66,7 +70,6 @@ a.grey {
 }
 html {
     height: 100%;
-    overflow: hidden;
 }
 body {
 	height: 100%;
@@ -116,6 +119,7 @@ section {
 .column {
     width: 50%;
     height: 100%;
+    overflow: hidden;
     @include m1000 {
         width: 100%;
     }
@@ -134,9 +138,10 @@ section {
         }
     }
     &--info {
-        @include flex($alignI: flex-start, $direction: column);
+        @include flex($alignI: flex-start);
         position: relative;
         z-index: 2;
+        overflow: hidden;
         @include m1000 {
              display: block;
              height: auto;
@@ -149,6 +154,7 @@ section {
         }
         main {
             padding: 0 40px 0 60px;
+            width: 100%;
             @media (max-width: 1400px) {
                 padding: 40px 20px 0 20px;
             }
@@ -168,4 +174,44 @@ section {
             }
         }
     }
+}
+
+.typing {
+    &:after {
+        content: '';
+        width: 12px;
+        height: 32px;
+        background-color: $accent;
+        display: inline-block;
+        vertical-align: baseline;
+        opacity: 1;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+
+        @media (max-width: 1000px) {
+            width: 3px;
+            height: 7px;
+        }
+    }    
+}
+
+
+.typed-cursor{
+    display: none;
+}
+@keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-webkit-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+}
+@-moz-keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
 }

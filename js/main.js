@@ -4,6 +4,19 @@ window.params = {
     isIOS: /iPhone|iPad|iPod/i.test(navigator.userAgent)
 };
 
+function typing(){
+    if ( $(".typing").length > 0 ) {
+        var text = 'Hello^1000, \n';
+        text = text+'I’m Mark Velmiskin.^1000 \n';
+        text = text+'<span>UI^200/^200UX Designer.</span>';
+        $(".typing").typed({
+            strings: [text],
+            typeSpeed: 40,
+            startDelay: 2000,
+        });    
+    }
+}
+typing();
 
 jQuery(document).ready(function($) {
 
@@ -75,6 +88,7 @@ jQuery(document).ready(function($) {
         fade: true,
         autoplay: true,
         autoplaySpeed: 4000,
+        speed: 1000,
         dots: true,
         arrows: false
     });
