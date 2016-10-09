@@ -1,16 +1,16 @@
          
 .header {
     width: 100%;
-    height: 45px;
     margin: 0;
+    padding-right: 30px;
     @include flex();
     &__top {
         @include flex();
-        height: 100%;
         width: 100%;
+        padding-bottom: 30px;
+        border-bottom: 1px solid #EBEBEB;
         background-color: #FFF;
         z-index: 3;
-        padding-right: 30px;
     }
         /*.................media.............*/
         @include m800 {
@@ -30,7 +30,7 @@
     @include position(absolute, -100%, auto, auto, 0);
     width: 100%;
     height: 100%;
-    padding: 80px 0 80px 10px;
+    padding: 80px 0 80px 60px;
     z-index: -1;
     @include flex($alignI: flex-start, $direction: column, $justify: center);
     background-color: #FFF;
@@ -42,13 +42,18 @@
     }
     ul {
         list-style-type: none;
+        width: 100%;
+
+        li {
+          width: auto;
+        }
         a {
-            display: block;
+            display: inline-block;
             text-decoration: none;
             font: 38px/56px $pnb;
             color: $heading;
             position: relative;
-            @include transition(all, .5s);       
+            @include transition(all, .1s);       
             &.active {
                 color: $accent;
             }
@@ -67,7 +72,8 @@
             &:not(.active):hover {
                 color: #FFF;
                 &:after {
-                    width: 100%;
+                    width: -webkit-calc(100% + 16px);
+                    width: calc(100% + 16px);
                 }
             }
         }
@@ -87,6 +93,10 @@
     .italic {
         margin-top: 200px;
         font-style: normal;
+
+        @media (max-height: 700px) {
+          margin-top: 100px;
+        }
     }
 }
 
@@ -167,30 +177,37 @@
         width: 80%;
       }
     }
-    &:hover {
-        span {
-            -webkit-animation: move linear 1s infinite;
-               -moz-animation: move linear 1s infinite;
-                 -o-animation: move linear 1s infinite;
-                    animation: move linear 1s infinite;
-        }
-        :nth-child(1)              {   
-           -webkit-animation-delay: 0s;
-           -moz-animation-delay: 0s;
-             -o-animation-delay: 0s;
-                animation-delay: 0s;}
-        :nth-child(2)           {   
-           -webkit-animation-delay: .2s;
-           -moz-animation-delay: .2s;
-             -o-animation-delay: .2s;
-                animation-delay: .2s;}
-        :nth-child(3)          {   
-            -webkit-animation-delay: .4s;
-           -moz-animation-delay: .4s;
-             -o-animation-delay: .4s;
-                animation-delay: .4s;}
-      }
+    span {
+        -webkit-animation: move linear 1s infinite;
+           -moz-animation: move linear 1s infinite;
+             -o-animation: move linear 1s infinite;
+                animation: move linear 1s infinite;
     }
+    span:nth-child(1)              {   
+       -webkit-animation-delay: 0s;
+       -moz-animation-delay: 0s;
+         -o-animation-delay: 0s;
+            animation-delay: 0s;}
+    span:nth-child(2)           {   
+       -webkit-animation-delay: .2s;
+       -moz-animation-delay: .2s;
+         -o-animation-delay: .2s;
+            animation-delay: .2s;}
+    span:nth-child(3)          {   
+        -webkit-animation-delay: .4s;
+       -moz-animation-delay: .4s;
+         -o-animation-delay: .4s;
+            animation-delay: .4s;}
+    
+
+    &:hover span {
+        -webkit-animation: none!important;
+           -moz-animation: none!important;
+             -o-animation: none!important;
+                animation: none!important;
+    }
+
+  }
   #cross {
     position:absolute;
     height:100%;

@@ -4,7 +4,8 @@
 	padding-bottom: 90px;
 
 	.header {
-		margin-bottom: 80px;
+		margin-bottom: 50px;
+		padding-right: 0;
 	}
 
 	footer {
@@ -12,7 +13,6 @@
 		bottom: 30px;
 	}
 }
-
 .portfolio-item {
 	width: -webkit-calc(25% - 20px);
 	width: calc(25% - 20px);
@@ -79,4 +79,30 @@
 			right: -22px;
 		}
 	}
+}
+.footer--full {
+	padding-right: 0;
+	-webkit-transition: background-color 0.3s ease;
+	-o-transition: background-color 0.3s ease;
+	transition: background-color 0.3s ease;
+}
+
+
+.menu-open {
+	.header--full {
+		width: 50%;
+		padding-right: 30px;
+	}
+	
+	.portfolio-controls {
+		visibility: hidden;
+	}
+	
+	.footer--full {
+		width: 50%;
+		padding-right: 30px;
+		bottom: 0;
+		background-color: #fff;
+	}
+
 }

@@ -7,6 +7,21 @@ window.params = {
 
 jQuery(document).ready(function($) {
 
+    $('.portfolio-item').each(function(i){
+        setTimeout(function(){
+            $('.portfolio-item').eq(i).addClass('is-visible');
+        }, 200 * i);
+    });
+
+
+    $( "body" ).delay( 500 ).queue(function(next) {
+        $(this).css({
+            opacity: '1',
+            visibility: 'visible'
+        });
+        next(); 
+    })
+
     /*---------------------------
                                   ADD CLASS ON SCROLL
     ---------------------------*/
@@ -31,12 +46,14 @@ jQuery(document).ready(function($) {
         $('.navigation').toggleClass('active');
         $('.menuImg').toggleClass('active');
         if ($('.navigation').hasClass('active')) {
+                $('body').addClass('menu-open');
                 $('body').css('overflow', 'hidden');
-                 $('.portfolio').css({
+                $('.portfolio').css({
                     height: '100%'
                 });
                 $(this).removeClass('default').addClass('active');
             } else {
+                $('body').removeClass('menu-open');
                 $('body').css('overflow', 'auto');
                 $('.portfolio').css({
                     height: 'auto'
@@ -49,26 +66,6 @@ jQuery(document).ready(function($) {
     });
 
 
-
-    /*---------------------------
-                                  Magnific popup
-    ---------------------------*/
-    $('.magnific').magnificPopup({
-        type: 'inline',
-
-        fixedContentPos: false,
-        fixedBgPos: true,
-
-        overflowY: 'auto',
-        modal: false,
-
-        closeBtnInside: true,
-        preloader: false,
-        
-        midClick: true,
-        removalDelay: 300,
-        mainClass: 'my-mfp-slide-bottom'
-    });
 
 
     /*----------------------------
@@ -95,7 +92,6 @@ jQuery(document).ready(function($) {
             callbacks: {
                 onMixEnd: function(state){
                     $('.scroll').perfectScrollbar('update'); 
-                    console.log('end');
                 }
             }
         });    

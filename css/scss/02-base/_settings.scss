@@ -50,6 +50,11 @@ body {
 	color: $text;
 	overflow: auto;
     position: relative;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: opacity 1s ease;
+    -o-transition: opacity 1s ease;
+    transition: opacity 1s ease;
 }
 body {
     padding: 30px;
@@ -80,7 +85,7 @@ section {
         position: relative;
         z-index: 2;
         main {
-            padding: 0 40% 0 60px;
+            padding: 0 40px 0 60px;
         }
         p {
             margin-bottom: 25px;

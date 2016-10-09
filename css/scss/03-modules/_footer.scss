@@ -1,9 +1,15 @@
-footer {
-    @include flex();
+footer { 
     width: 100%;
-    padding-right: 30px;
     position: relative;
     z-index: 100;
+    padding-right: 30px;
+
+    .footer__wrapper {
+        @include flex();
+        padding-top: 30px;
+        border-top: 1px solid #EBEBEB;
+        width: 100%;
+    }
 }
 .social {
     a {
