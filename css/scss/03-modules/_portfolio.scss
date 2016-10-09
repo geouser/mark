@@ -18,12 +18,41 @@
 	width: calc(25% - 20px);
 	margin: 0 10px 20px 10px;
 	display: none;
-
+	@media (max-width: 1000px) {
+		width: calc(33% - 20px);
+		width: -webkit-calc(33% - 20px);
+	}
+	@media (max-width: 700px) {
+		width: calc(50% - 20px);
+		width: -webkit-calc(50% - 20px);
+	}
+	@media (max-width: 500px) {
+		width: 100%;
+		margin: 20px auto;
+	}
+	> div {
+		overflow: hidden;
+		max-height: 0;
+		opacity: 0;
+		-webkit-transition: all 1s ease;
+		   -moz-transition: all 1s ease;
+		    -ms-transition: all 1s ease;
+		     -o-transition: all 1s ease;
+		        transition: all 1s ease;
+	}
 	img {
 		display: block;
 		width: 100%;
 	}
+
+	&.is-visible >div  {
+		max-height: 500px;
+		opacity: 1;
+	}
 }
+
+
+
 .portfolio-wrapper {
 	@include flex($alignI: flex-start, $justify: flex-start);
 	width: -webkit-calc(100% + 20px);
@@ -41,6 +70,21 @@
 	-o-transform: translateX(-50%);
 	transform: translateX(-50%);
 	z-index: 4;
+	
+	@media (max-width: 1000px) {
+		position: static;
+		display: block;
+		margin: 0 auto 40px;
+		text-align: center;
+		-webkit-transform: none;
+		   -moz-transform: none;
+		    -ms-transform: none;
+		     -o-transform: none;
+		        transform: none;
+	}
+	@media (max-width: 600px) {
+		margin-bottom: 20px;
+	}
 
 	.filter {
 		background-color: transparent;
@@ -64,6 +108,9 @@
 		}
 		&:not(:last-child) {
 			margin-right: 40px;
+			@media (max-width: 600px) {
+				margin-right: 20px;
+			}
 		}
 
 		&:not(:last-child):after {
@@ -77,6 +124,9 @@
 			top: 50%;
 			margin-top: -1px;
 			right: -22px;
+			@media (max-width: 600px) {
+				right: -11px;
+			}
 		}
 	}
 }

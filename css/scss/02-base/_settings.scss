@@ -9,6 +9,16 @@ h1 {
         color: $accent;
         display: block;
     }
+    @include m1000 {
+        font: 42px/50px $pnb;
+    }
+    @include m600 {
+        font: 36px/45px $pnb;
+        margin-bottom: 30px;
+    }
+    @include m500 {
+        font: 28px/36px $pnb;
+    }
 }
 h1,h2,h3 {
     color: $heading;
@@ -33,6 +43,21 @@ p, span {
     &--marginSmall {
         margin-top: 40px;
     }
+    @include m1000 {
+        font: italic 23px/45px $pnb;
+    }
+    @include m600 {
+        font: italic 20px/40px $pnb;
+         &--margin {
+            margin-top: 40px;
+        }
+        &--marginSmall {
+            margin-top: 20px;
+        }
+    }
+    @include m500 {
+        font: italic 16px/30px $pnb;
+    }
 }
 .grey,
 a.grey {
@@ -41,6 +66,7 @@ a.grey {
 }
 html {
     height: 100%;
+    overflow: hidden;
 }
 body {
 	height: 100%;
@@ -50,9 +76,18 @@ body {
 	color: $text;
 	overflow: auto;
     position: relative;
+    @include m1000 {
+    }
+    @include m500 {
+        font-size: 14px;
+        line-height: 18px;
+    }
 }
 body {
     padding: 30px;
+    @include m600 {
+        padding: 15px;
+    }
 }
 // lAYOUT
 // ---------------------------
@@ -68,22 +103,63 @@ section {
     height: 100%;
     @include flex();
     overflow: hidden;
+    @include m1000 {
+       height: auto;
+    }
 }
 .column {
     width: 50%;
     height: 100%;
+    @include m1000 {
+        width: 100%;
+    }
     &--images {
-        background-color: $accent;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50% 50%;
+        @include m1000 {
+            height: 600px;
+        }
+        @include m600 {
+            height: 500px;
+        }
+        @include m500 {
+            height: 400px;
+        }
     }
     &--info {
         @include flex($alignI: flex-start, $direction: column);
         position: relative;
         z-index: 2;
+        @include m1000 {
+             display: block;
+             height: auto;
+             margin-bottom: 40px;
+             footer {
+                padding: 0;
+                position: static;
+                margin-top: 40px;
+             }
+        }
         main {
             padding: 0 40% 0 60px;
+            @media (max-width: 1400px) {
+                padding: 40px 20px 0 20px;
+            }
+             @include m600 {
+                 padding: 40px 5px 20px;
+             }
         }
         p {
             margin-bottom: 25px;
+            @include m800 {
+                br {
+                    display: none;
+                }
+            }
+            @include m600 {
+                margin-bottom: 20px;
+            }
         }
     }
 }

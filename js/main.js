@@ -7,6 +7,13 @@ window.params = {
 
 jQuery(document).ready(function($) {
 
+    $('.portfolio-item').each(function(i){
+        setTimeout(function(){
+            $('.portfolio-item').eq(i).addClass('is-visible');
+            console.log(i);
+        }, 200 * i);
+    });
+
     /*---------------------------
                                   ADD CLASS ON SCROLL
     ---------------------------*/
