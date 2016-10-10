@@ -35,6 +35,10 @@ jQuery(document).ready(function($) {
         next(); 
     })
 
+    if ( !$('body').hasClass('scroll') ) {
+        $('html').css('overflow', 'hidden');
+    }
+
     /*---------------------------
                                   ADD CLASS ON SCROLL
     ---------------------------*/
@@ -64,6 +68,9 @@ jQuery(document).ready(function($) {
                 $('.portfolio').css({
                     height: '100%'
                 });
+                if ( $('.scroll').length > 0 ) {
+                    $('.scroll').perfectScrollbar('update'); 
+                }
                 $(this).removeClass('default').addClass('active');
             } else {
                 $('body').removeClass('menu-open');
@@ -71,6 +78,9 @@ jQuery(document).ready(function($) {
                 $('.portfolio').css({
                     height: 'auto'
                 });
+                if ( $('.scroll').length > 0 ) {
+                    $('.scroll').perfectScrollbar('update'); 
+                }
                 $(this).removeClass('active').addClass('default');
                 setTimeout(function() {
                    $('.menu-button').removeClass('default');
@@ -115,7 +125,7 @@ jQuery(document).ready(function($) {
     /*----------------------------
                               Scroll
     -------------------------*/
-    if ( $('.scroll').length > 0 ) {
+    if ( $('.scroll').length > 0 && !window.params.isMobile ) {
         $('.scroll').perfectScrollbar(); 
     }
     

@@ -54,7 +54,7 @@
     }
     &.active {
         top: 0;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
         right: 0;
@@ -203,6 +203,9 @@
     }
   }
   .navigation {
+      position: fixed;
+      width: 50%;
+      
       @include m1000 {
         display: block;
         padding: 90px 30px 90px;
@@ -262,36 +265,27 @@
         width: 80%;
       }
     }
-    span {
+    &:hover span {
         -webkit-animation: move linear 1s infinite;
            -moz-animation: move linear 1s infinite;
              -o-animation: move linear 1s infinite;
                 animation: move linear 1s infinite;
     }
-    span:nth-child(1)              {   
+    &:hover span:nth-child(1)              {   
        -webkit-animation-delay: 0s;
        -moz-animation-delay: 0s;
          -o-animation-delay: 0s;
             animation-delay: 0s;}
-    span:nth-child(2)           {   
+    &:hover span:nth-child(2)           {   
        -webkit-animation-delay: .2s;
        -moz-animation-delay: .2s;
          -o-animation-delay: .2s;
             animation-delay: .2s;}
-    span:nth-child(3)          {   
+    &:hover span:nth-child(3)          {   
         -webkit-animation-delay: .4s;
        -moz-animation-delay: .4s;
          -o-animation-delay: .4s;
             animation-delay: .4s;}
-    
-
-    &:hover span {
-        -webkit-animation: none!important;
-           -moz-animation: none!important;
-             -o-animation: none!important;
-                animation: none!important;
-    }
-
   }
   #cross {
     position:absolute;
@@ -318,6 +312,39 @@
       }
     }
   }
+}
+
+.main-page {
+   #hamburger {
+    span {
+        -webkit-animation: move linear 1s infinite;
+           -moz-animation: move linear 1s infinite;
+             -o-animation: move linear 1s infinite;
+                animation: move linear 1s infinite;
+    }
+    span:nth-child(1)              {   
+       -webkit-animation-delay: 0s;
+       -moz-animation-delay: 0s;
+         -o-animation-delay: 0s;
+            animation-delay: 0s;}
+    span:nth-child(2)           {   
+       -webkit-animation-delay: .2s;
+       -moz-animation-delay: .2s;
+         -o-animation-delay: .2s;
+            animation-delay: .2s;}
+    span:nth-child(3)          {   
+        -webkit-animation-delay: .4s;
+       -moz-animation-delay: .4s;
+         -o-animation-delay: .4s;
+            animation-delay: .4s;}
+    &:hover span {
+      -webkit-animation: none!important;
+         -moz-animation: none!important;
+           -o-animation: none!important;
+              animation: none!important;
+    }
+
+   }
 }
 
 #menu-toggle.active {

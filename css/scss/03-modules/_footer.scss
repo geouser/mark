@@ -4,6 +4,7 @@ footer {
     z-index: 100;
     padding-right: 30px;
     bottom: 0;
+    background-color: #fff;
 
     .footer__wrapper {
         @include flex();
